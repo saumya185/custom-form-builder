@@ -1,0 +1,379 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+    color: #4a148c;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* Headings */
+h1 {
+    color: #880e4f;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 2.5em;
+    text-shadow: 0 2px 4px rgba(136, 14, 79, 0.1);
+}
+
+h3 {
+    color: #880e4f;
+    margin-bottom: 15px;
+}
+
+p {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+/* Containers */
+.container {
+    background: #fff0f5;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(136, 14, 79, 0.15);
+    max-width: 1200px;
+    margin: auto;
+    backdrop-filter: blur(10px);
+}
+
+.main-content {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+/* Toolbox */
+.toolbox {
+    background: #f8bbd0;
+    padding: 20px;
+    border-radius: 12px;
+    width: 250px;
+    height: fit-content;
+    box-shadow: 0 4px 16px rgba(236, 64, 122, 0.1);
+}
+
+.element-item {
+    background: #fff0f5;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    cursor: grab;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.element-item:hover {
+    background: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(236, 64, 122, 0.2);
+    border-color: #ec407a;
+}
+
+.element-item:active {
+    cursor: grabbing;
+}
+
+.icon {
+    font-size: 1.2em;
+}
+
+/* Canvas */
+.canvas-container {
+    flex: 1;
+}
+
+.canvas {
+    background: #ffffff;
+    border: 3px dashed #f8bbd0;
+    border-radius: 12px;
+    min-height: 400px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.canvas.drag-over {
+    border-color: #ec407a;
+    background: #fce4ec;
+    transform: scale(1.02);
+}
+
+.drop-hint {
+    color: #ad1457;
+    text-align: center;
+    margin-top: 150px;
+    font-size: 1.2em;
+    opacity: 0.7;
+}
+
+/* Form Elements in Canvas */
+.form-element {
+    background: #fff0f5;
+    border: 1px solid #f8bbd0;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    position: relative;
+    animation: slideIn 0.5s ease;
+}
+
+.form-element:hover {
+    box-shadow: 0 4px 12px rgba(236, 64, 122, 0.15);
+    transform: translateY(-1px);
+}
+
+.form-element label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #880e4f;
+}
+
+.form-element input,
+.form-element textarea,
+.form-element select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #f8bbd0;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+    background: #ffffff;
+}
+
+.form-element input:focus,
+.form-element textarea:focus,
+.form-element select:focus {
+    outline: none;
+    border-color: #ec407a;
+    box-shadow: 0 0 0 3px rgba(236, 64, 122, 0.1);
+}
+
+.checkbox-group,
+.radio-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.checkbox-group input,
+.radio-group input {
+    width: auto;
+    margin: 0;
+}
+
+.remove-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #ec407a;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.form-element:hover .remove-btn {
+    opacity: 1;
+}
+
+.remove-btn:hover {
+    background: #c2185b;
+}
+
+/* Export Controls */
+.export-controls {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+/* Buttons */
+.button {
+    background: linear-gradient(135deg, #ec407a, #c2185b);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(236, 64, 122, 0.3);
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(236, 64, 122, 0.4);
+}
+
+.button.secondary {
+    background: linear-gradient(135deg, #ad1457, #880e4f);
+}
+
+.button.secondary:hover {
+    box-shadow: 0 6px 20px rgba(173, 20, 87, 0.4);
+}
+
+/* Preview Area */
+.form-preview {
+    background: linear-gradient(135deg, #f8bbd0, #f48fb1);
+    padding: 25px;
+    margin-top: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(244, 143, 177, 0.2);
+}
+
+.preview-content {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    min-height: 100px;
+}
+
+.preview-hint {
+    color: #ad1457;
+    text-align: center;
+    font-style: italic;
+    margin: 50px 0;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(74, 20, 140, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: #fff0f5;
+    margin: 5% auto;
+    padding: 0;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 8px 32px rgba(136, 14, 79, 0.3);
+    animation: modalSlideIn 0.3s ease;
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #ec407a, #c2185b);
+    color: white;
+    padding: 20px;
+    border-radius: 12px 12px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: white;
+}
+
+.close {
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.close:hover {
+    opacity: 0.7;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+#exportCode {
+    width: 100%;
+    height: 300px;
+    background: #ffffff;
+    border: 2px solid #f8bbd0;
+    border-radius: 8px;
+    padding: 15px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    resize: vertical;
+    margin-bottom: 15px;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+    
+    .toolbox {
+        width: 100%;
+    }
+    
+    .export-controls {
+        flex-wrap: wrap;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+    }
+}
+/* Custom Royal Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #fdecef; /* Soft pink track */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ba2d65; /* Deep rose thumb */
+  border-radius: 10px;
+  /* Border to blend with track */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7b1c48; /* Darker rose on hover */
+}

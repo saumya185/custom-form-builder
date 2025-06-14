@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Form Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Custom Form Builder</h1>
+        <p>Drag elements from the toolbox to build your custom form!</p>
+        
+        <div class="main-content">
+            <!-- Toolbox -->
+            <div class="toolbox">
+                <h3>🧩 Form Elements</h3>
+                <div class="element-item" draggable="true" data-type="text">
+                    <span class="icon">📝</span>
+                    Text Input
+                </div>
+                <div class="element-item" draggable="true" data-type="email">
+                    <span class="icon">📧</span>
+                    Email
+                </div>
+                <div class="element-item" draggable="true" data-type="password">
+                    <span class="icon">🔒</span>
+                    Password
+                </div>
+                <div class="element-item" draggable="true" data-type="textarea">
+                    <span class="icon">📄</span>
+                    Textarea
+                </div>
+                <div class="element-item" draggable="true" data-type="checkbox">
+                    <span class="icon">☑️</span>
+                    Checkbox
+                </div>
+                <div class="element-item" draggable="true" data-type="radio">
+                    <span class="icon">⚪</span>
+                    Radio Button
+                </div>
+                <div class="element-item" draggable="true" data-type="select">
+                    <span class="icon">📋</span>
+                    Dropdown
+                </div>
+            </div>
+
+            <!-- Form Builder Canvas -->
+            <div class="canvas-container">
+                <div class="canvas" id="formCanvas">
+                    <p class="drop-hint">Drop form elements here to build your form</p>
+                </div>
+                
+                <!-- Export Buttons -->
+                <div class="export-controls">
+                    <button class="button" id="exportJson">📤 Export as JSON</button>
+                    <button class="button" id="exportHtml">🔗 Export as HTML</button>
+                    <button class="button secondary" id="clearForm">🗑️ Clear Form</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Live Preview -->
+        <div class="form-preview" id="formPreview">
+            <h3>🖼️ Live Preview</h3>
+            <div class="preview-content">
+                <p class="preview-hint">Your form preview will appear here...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Export Modal -->
+    <div class="modal" id="exportModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Export Code</h3>
+                <span class="close" id="closeModal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <textarea id="exportCode" readonly></textarea>
+                <button class="button" id="copyCode">📋 Copy to Clipboard</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
